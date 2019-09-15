@@ -1,14 +1,14 @@
 $(function() {
   validator ();
 
-  $(document).ajaxStart(function() {
-    //开启进度条
-    NProgress.start();
-  });
-  $(document).ajaxStop(function() {
-    //开启进度条
-    NProgress.done();
-  });
+  // $(document).ajaxStart(function() {
+  //   //开启进度条
+  //   NProgress.start();
+  // });
+  // $(document).ajaxStop(function() {
+  //   //开启进度条
+  //   NProgress.done();
+  // });
 
 
   function validator () {
