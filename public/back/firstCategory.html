@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
   <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
   <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
   <!--[if lt IE 9]>
@@ -39,13 +39,13 @@
           </a>
         </li>
         <li >
-          <a href="javascript:void(0)" class="js-showCategory">
+          <a href="javascript:void(0)" class="js-showCategory" >
             <i class="glyphicon glyphicon-list"></i>
             <span>分类管理</span>            
           </a>
-          <div class="category-chlid" style="display: none">
+          <div class="category-chlid">
               <!-- current -->
-            <a href="firstCategory.html" class="frist ">一级分类</a>
+            <a href="firstCategory.html" class="frist current" >一级分类</a>
             <a href="secondCategory.html" class="second">二级分类</a>
           </div>
         </li>
@@ -71,24 +71,75 @@
     <div class="container-fluid">
       <ol class="breadcrumb">
         <li><a href="#">管理系统</a></li>
-        <li class="active">首页</li>
+        <li><a href="#">分类管理</a></li>
+        <li class="active">一级分类</li>
       </ol>
-      <div class="echars-1 pull-left"></div>
-      <div class="echars-2 pull-right"></div>
+      <div >
+        <button class="btn btn-default addCategory">添加分类</button>
+      </div>
+      <div class="bContent mt20">
+        <table class="table table-bordered table-hover">
+          <thead>
+           <tr>
+            <th>序号</th>
+            <th>一级分类名</th>
+           </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td>1</td>
+              <td>户外管</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <ul class="pagintor"></ul>
     </div>
     
   </div>
+  <div class="modal fade " tabindex="-1" role="dialog" id="showModal">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">添加分类</h4>
+          </div>
+          <div class="modal-body">
+            <form id="form">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入一级分类" name="categoryName">
+              </div>
+            </form>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-primary btnSave" form="form">保存</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
+    <script type="text/html" id = "tpl">
+      {{each rows v i}}
+      <tr>
+        <td>{{(i + 1 + (page - 1) * size )}}</td>
+        <td>{{v.categoryName}}</td>
+      </tr>
+      {{/each }}
+    </script>
    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+   <script src="./lib//bootstrap-paginator/bootstrap-paginator.min.js"></script>
+   <script src="./lib//artTemplate//template-web.js"></script>
    <script src="./lib/nprogress/nprogress.js"></script>
-   <!-- echarts图标 -->
-   <script src="./lib/echarts/echarts.min.js"></script>
    <script src="./js/base.js"></script>
-   <script src="./js/index.js"></script>
-
+   <script src="./js/firstCategory.js"></script>
 </body>
 </html>
