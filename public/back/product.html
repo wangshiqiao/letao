@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>首页</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./css/base.css">
+</head>
+<body>
+  <div class="lt_aside" >
+    <div class="banner">
+      王世乔商城
+    </div>
+    <div class="user">
+      <img src="./images/default.png" alt="">
+      <p>超级管理员</p>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="user.html" class="">
+            <i class="glyphicon glyphicon-user"></i>
+            <span>用户管理</span>
+          </a>
+        </li>
+        <li >
+          <a href="javascript:void(0)" class="js-showCategory" >
+            <i class="glyphicon glyphicon-list"></i>
+            <span>分类管理</span>            
+          </a>
+          <div class="category-chlid hidden">
+              <!-- current -->
+            <a href="firstCategory.html" class="frist " >一级分类</a>
+            <a href="secondCategory.html" class="second ">二级分类</a>
+          </div>
+        </li>
+        <li>
+          <a href="product.html" class="current">
+            <i class="glyphicon glyphicon-tag"></i>
+            <span>商品管理</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="lt_content">
+    <div class="banner" >
+      <a href="javascript:void(0)" class="pull-left show-toggle">
+          <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a href="javascript:void(0)" class="pull-right">
+          <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+      
+    </div>
+    <div class="container-fluid">
+      <ol class="breadcrumb">
+        <li><a href="#">管理系统</a></li>
+        <li class="active">商品管理</li>
+      </ol>
+      <div >
+        <button class="btn btn-default addCategory">添加商品</button>
+      </div>
+      <div class="bContent mt20">
+        <table class="table table-bordered table-hover">
+          <thead>
+           <tr>
+            <th width="10%">序号</th>
+            <th width="25%">商品名称</th>
+            <th width="25%">商品描述</th>
+            <th width="10%">商品库存</th>
+            <th width="10%">商品尺寸</th>
+            <th width="10%">商品状态</th>
+            <th width="10%">操作</th>
+           </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td>1</td>
+              <td>户外管</td>
+            </tr> -->
+          </tbody>
+        </table>        
+      </div>
+      <div class="pull-right">
+        <ul id="pagintor"></ul>
+      </div>
+    </div>
+    
+    
+  </div>
+  <div class="modal fade " tabindex="-1" role="dialog" id="showModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">添加分类</h4>
+          </div>
+          <div class="modal-body">
+            <form id="form">
+              <div class="form-group">
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      <span class="dropdownTop">请选择二级分类</span>                      
+                      <span class="caret"></span>
+                    </button>
+                    <input type="hidden" class="hiddenBrandId" name="brandId">
+                    <ul class="dropdown-menu">
+                      <!-- <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>                       -->
+                    </ul>
+                  </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入商品名称" name="proName">
+              </div>
+              <div class="form-group">
+                <textarea name="proDesc" class="form-control" cols="30" rows="5" placeholder="请输入商品描述"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入商品库存" name="num">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入商品尺码" name="size">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入商品原价" name="oldPrice">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入商品现价" name="price">
+              </div>
+              <div class="form-group">
+                  <label class="btn btn-default" for= "fileupload" type="button">上传图片</label>
+                  <input type="file" style="display: none" id="fileupload" name="pic1" data-url="/product/addProductPic">
+                  <!-- 隐藏的图片地址 -->
+                  <input type="hidden" name='picUrl' class="picUrl">
+                  <div class="mt20">
+                      <!-- <img src="./images/none.png" alt="" width="100px" class="picImg"> -->
+                  </div>
+                  
+              </div>
+            </form>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-primary btnSave" form="form">保存</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script type="text/html" id = "tpl1">
+      {{each rows v i}}
+      <li data-id="{{v.id}}"><a href="#">{{v.categoryName}}</a></li>     
+      {{/each }}
+    </script>
+    <script type="text/html" id = "tpl2">
+      {{each rows v i}}
+      <tr>
+        <td>{{(i + 1 + (page - 1) * size )}}</td>
+        <td>{{v.proName}}</td>
+        <td>{{v.proDesc}}</td>
+        <td>{{v.num}}</td>
+        <td>{{v.size}}</td>
+        <td>{{v.statu === 1 ? '上架':'下架'}}</td>
+        {{ if v.statu === 1 }}
+        <td><button type="button" class="btn btn-danger">下架</button></td>
+        {{else}}
+        <td><button type="button" class="btn btn-success">上架</button></td>        
+        {{ /if }}
+      </tr>
+      {{/each }}
+    </script>
+   <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+   <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+   <!-- 如果上传图片需要跨域，那么需要引入这个js文件，如果不跨域，则不需要引入 -->
+   <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script>
+   <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+   <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+   <script src="./lib//bootstrap-paginator/bootstrap-paginator.min.js"></script>
+   <script src="./lib//artTemplate//template-web.js"></script>
+   <script src="./lib/nprogress/nprogress.js"></script>
+   <script src="./js/base.js"></script>
+   <script src="./js/product.js"></script>
+</body>
+</html>
