@@ -42,7 +42,7 @@
             <i class="glyphicon glyphicon-list"></i>
             <span>分类管理</span>            
           </a>
-          <div class="category-chlid hidden">
+          <div class="category-chlid" style="display: none">
               <!-- current -->
             <a href="firstCategory.html" class="frist " >一级分类</a>
             <a href="secondCategory.html" class="second ">二级分类</a>
@@ -146,13 +146,21 @@
               </div>
               <div class="form-group">
                   <label class="btn btn-default" for= "fileupload" type="button">上传图片</label>
-                  <input type="file" style="display: none" id="fileupload" name="pic1" data-url="/product/addProductPic">
+                  <input type="file" style="display: none" id="fileupload" name="pic1" data-url="/product/addProductPic" multiple>
                   <!-- 隐藏的图片地址 -->
                   <input type="hidden" name='picUrl' class="picUrl">
-                  <div class="mt20">
-                      <!-- <img src="./images/none.png" alt="" width="100px" class="picImg"> -->
+                  <div class="mt20" id="imgList">
+                      <!-- <img src="./images/none.png" alt="" width="100px" class="picImg">
+                      <img src="./images/none.png" alt="" width="100px" class="picImg">
+                      <img src="./images/none.png" alt="" width="100px" class="picImg"> -->
                   </div>
-                  
+                  <input type="hidden" name='picName1'>
+                  <input type="hidden" name='picName2'>
+                  <input type="hidden" name='picName3'>
+                  <input type="hidden" name='picAddr1'>
+                  <input type="hidden" name='picAddr2'>
+                  <input type="hidden" name='picAddr3'>
+                  <input type="hidden" name='picStatus' value="">
               </div>
             </form>
            
@@ -167,7 +175,7 @@
 
     <script type="text/html" id = "tpl1">
       {{each rows v i}}
-      <li data-id="{{v.id}}"><a href="#">{{v.categoryName}}</a></li>     
+      <li ><a href="#" data-id="{{v.id}}">{{v.brandName}}</a></li>     
       {{/each }}
     </script>
     <script type="text/html" id = "tpl2">

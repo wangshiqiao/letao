@@ -1,5 +1,6 @@
 $(function() {
   $(".js-showCategory").on("click",function() {
+    console.log("123");
     $(".category-chlid").slideToggle("0.5");
   });
   $(".show-toggle").on("click",function(){
@@ -36,4 +37,17 @@ $(function() {
       }
     });
   }
+
+  //退出登录
+  $(".glyphicon.glyphicon-log-out").on("click",function() {
+    $.ajax({
+      url: "/employee/employeeLogout",
+      dataType: "json",
+      success: function(info){
+        if(info.success) {
+          window.location.href = './login.html'
+        }
+      } 
+    });
+  });
 });

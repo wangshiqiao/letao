@@ -6,7 +6,7 @@
 $(function() {
 
   var currentPage = 1; // 当前页
-  var pageSize = 2; // 一页多少条
+  var pageSize = 1; // 一页多少条
   var picArr = []; // 专门用来保存图片对象
 
   // 1. 一进入页面就进行页面渲染
