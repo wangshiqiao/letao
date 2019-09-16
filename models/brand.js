@@ -11,6 +11,8 @@ Brand.addSecondCategory = function (brand, callback) {
   var selectSql = 'insert into brand (id,brandName,categoryId,brandLogo,isDelete,hot)  values (null,?,?,?,1,?)';
   db.query(selectSql, [brand.brandName,brand.categoryId,brand.brandLogo,brand.hot], function (err, result) {
     if (err) {
+      console.log("=============================");
+      console.log(brand);
       return callback(err);
     }
     callback(err, result);

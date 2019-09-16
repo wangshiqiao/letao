@@ -125,17 +125,15 @@ $(function(){
     //使用ajax提交逻辑
     $.ajax({
       url : "/category/addSecondCategory",
-      type : "post",
+      type : "POST",
       data :  {
         brandName: $("#form [name=categoryName]").val(),
         categoryId:$("#form [name=firstCategoryId]").val(),
         brandLogo: $("#form [name=picUrl]").val(),
-        hot: '是'
+        hot: '1'
       },
       dataType : "json",
       success : function( info ){
-        console.log(info);
-        return true;
         if(info.success){
           $("#showModal").modal("hide");
           // 当前的页码
