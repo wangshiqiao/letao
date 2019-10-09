@@ -1,0 +1,142 @@
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Microsoft Yahei', 'Times New Roman', Times, serif;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+    line-height: 0;
+}
+
+.lt_container {
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
+    height: 100%;
+    background-color: #fff;
+    .lt_header {
+        width: 100%;
+        max-width: 750px;
+        min-width: 320px;
+        height: 45px;
+        position: fixed;
+        background-color: #006699;
+        color: #fff;
+        z-index: 999;
+        .page,
+        .search {
+            height: 45px;
+            width: 45px;
+            color: #fff;
+            text-align: center;
+            line-height: 45px;
+        }
+
+        h3 {
+            overflow: hidden;
+            line-height: 45px;
+            text-align: center;
+            display: block;
+            font-weight: normal;
+        }
+    }
+
+    .lt_footer {
+        width: 100%;
+        max-width: 750px;
+        min-width: 320px;
+        height: 55px;
+        position: fixed;
+        background-color: #006699;
+        z-index: 999;
+        bottom: 0;
+
+        ul {
+            li {
+                float: left;
+                width: 25%;
+                text-align: center;
+
+                a {
+                    color: #fff;
+                    width: 100%;
+                    height: 55px;
+                    display: block;
+                    padding-top: 5px;
+                    ;
+                }
+
+                p {
+                    color: #fff;
+                    font-size: 14px;
+                }
+
+                .current {                    
+                    i ,p {
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+}
