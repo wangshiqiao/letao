@@ -92,7 +92,7 @@ ol {
   color: #fff;
   text-align: center;
   line-height: 45px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .lt_container .lt_header h3 {
   overflow: hidden;
@@ -100,6 +100,7 @@ ol {
   text-align: center;
   display: block;
   font-weight: normal;
+  font-size: 20px;
 }
 .lt_container .lt_main {
   padding-top: 45px;
