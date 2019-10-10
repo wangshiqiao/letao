@@ -1,0 +1,46 @@
+.lt_main .main-left {
+  width: 90px;
+  float: left;
+  height: 100%;
+  position: relative;
+}
+.lt_main .main-left ul li a {
+  height: 50px;
+  width: 90px;
+  background-color: #E3E4E5;
+  display: block;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+.lt_main .main-left ul li a.current {
+  background-color: #fff;
+}
+.lt_main .main-right {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+.lt_main .main-right ul {
+  padding: 10px;
+}
+.lt_main .main-right ul li {
+  float: left;
+  width: 33.33%;
+  margin-bottom: 6px;
+}
+.lt_main .main-right ul li a {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.lt_main .main-right ul li a img {
+  width: 70px;
+  height: 50px;
+}
+.lt_main .main-right ul li a p {
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+}
