@@ -3,28 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>买买买</title>
     <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="./lib//mui/css/mui.css">
     <link rel="stylesheet" href="./css/common.css">
-    <!-- <link rel="stylesheet" href="./css/index.css"> -->
+    <link rel="stylesheet" href="./css/searchList.css">
 
 </head>
 
 <body>
     <div class="lt_container">
         <div class="lt_header">
-            <a href="" class="mui-pull-left page"><i class="fa fa-home"></i></a>
-            <a href="" class="mui-pull-right search"><i class="fa fa-search"></i></a>
-            <h3>乐淘云购</h3>
+            <a href="javascript:history.go(-1);" class="mui-pull-left page"><i class="mui-icon mui-icon-back"></i></a>
+            <a href="" class="mui-pull-right search"></i></a>
+            <h3>商品列表</h3>
         </div>
-        <div class="lt_main"></div>
+        <div class="lt_main">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="search">
+                        <input type="text" placeholder="请输入关键字" id="searchInput">
+                        <button class="mui-btn mui-btn-primary search_btn">搜索</button>
+                    </div>
+
+                    <div class="lt_sort mui-clearfix">
+                        <a href="#" class="time">上架时间 <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="price">价格<i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="num">库存<i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="discount">折扣<i class="fa fa-angle-down"></i></a>
+                    </div>
+
+                    <!-- 商品列表 -->
+                    <div class="lt_product">
+                        <ul class="mui-clearfix productList">
+                            <!-- <li>
+                                <a href="">
+                                    <img src="./images/product.jpg" alt="">
+                                    <p class="info mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
+                                    <p class="price">
+                                        <span class="nowPrice">¥9.9</span>
+                                        <span class="oldPrice">¥999</span>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary">立即购买</button>
+                                </a>
+                            </li> -->                           
+                        </ul>
+                    </div>
+                    <div class="data_loading"></div>
+                </div>
+            </div>
+        </div>
         <div class="lt_footer">
             <ul>
                 <li>
-                    <a href="index.html" class="current">
+                    <a href="index.html">
                         <i class="fa fa-home"></i>
                         <p>首页</p>
                     </a>
@@ -51,6 +86,25 @@
         </div>
     </div>
 </body>
+<script type="html/text" id="tpl">
+{{each data v i}}
+<li>
+    <a href="">
+        <img src="{{v.pic[0].picAddr}}" alt="">
+        <p class="info mui-ellipsis-2">{{v.proName}} </p>
+        <p class="price">
+            <span class="nowPrice">¥{{v.price}}</span>
+            <span class="oldPrice">¥{{v.oldPrice}}</span>
+        </p>
+        <button class="mui-btn mui-btn-primary">立即购买</button>
+    </a>
+</li>
+{{/each}}
+</script>
 <script src="./lib/mui/js/mui.min.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/searchList.js"></script>
+
 </html>
