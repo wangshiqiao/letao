@@ -20,6 +20,7 @@ function getUrlParams() {
     return result;
 }
 
+
 /*搜索历史记录开始*/
 //添加搜索
 function addLocalStorage(txt) {
@@ -75,3 +76,22 @@ function clearLocalStorage() {
     });
 }
 /*搜索历史记录结束*/
+
+
+
+//判断是否登录
+function isLogin(callback) {
+    $.ajax({
+        url: "/user/queryUserMessage",
+        type: "get",
+        data: {},
+        dataType: "json",
+        success: function (data) {
+            if (data.username) {
+                callback && callback(data);
+            } else {
+                window.location.href = "login.html";
+            }
+        }
+    });
+}
