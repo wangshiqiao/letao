@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0>
+    <meta http-equiv=" X-UA-Compatible" content="ie=edge">
+    <title>买买买</title>
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib//mui/css/mui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/product.css">
+
+</head>
+
+<body class="mui-android mui-android-6 mui-android-6-0">
+    <div class="lt_container">
+        <div class="lt_header">
+            <a href="" class="mui-pull-left page"><i class="fa fa-home"></i></a>
+            <a href="" class="mui-pull-right search"><i class="fa fa-search"></i></a>
+            <h3>乐淘云购</h3>
+        </div>
+        <div class="lt_main ">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll tpl">
+
+                </div>
+            </div>
+        </div>
+        <div class="lt_buy">
+            <a href="#" class="mui-push-left buyCar">前往购物</a>
+            <div class="mui-pull-right">
+                <button class="mui-btn mui-btn-danger">加入购物车</button>
+                <button class="mui-btn mui-btn-warning">买买买</button>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/html" id="tpl">
+        <div class="mui-slider ">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img
+                                src="{{pic[0].picAddr}}" /></a></div>
+                    {{each pic v i}}
+                    <div class="mui-slider-item"><a href="#"><img src="{{v.picAddr}}" /></a></div>
+                    {{/each}}
+                    
+                   
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img
+                                src="{{pic[pic.length-1].picAddr}}" /></a></div>
+                </div>
+                <div class="mui-slider-indicator">
+                    {{each pic v i}}
+                    <div class='mui-indicator {{i==0?"mui-active":""}} '></div>
+                    {{/each}}
+                </div>
+            </div>
+            <!-- 商品头 -->
+            <div class="lt_title item_box">
+                <p>{{proName}}</p>
+            </div>
+            <div class="lt_price item_box">
+                <span>价格:</span>
+                <span class="nowPrice">￥{{price}}</span>
+                <span class="oldPrice">￥{{oldPrice}}</span>
+            </div>
+            <div class="lt_size item_box">
+                尺码:
+                <%
+                    var min = size.split('-')[0];    
+                                            
+                    var max = size.split('-')[1];
+               
+                    for(var i=min;i <= max ; i++) {  
+                %>       
+                        <span class="itemSize">{{i}}</span>
+                <% 
+                    } 
+                %>
+                
+            </div>
+            <div class="lt_count item_box">
+                数量:
+                <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='{{num}}'>
+                    <!-- "-"按钮，点击可减小当前数值 -->
+                    <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                    <input class="mui-numbox-input" type="number" />
+                    <!-- "+"按钮，点击可增大当前数值 -->
+                    <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                </div>
+                <span class="surplusCount">剩余数量{{num}}</span>
+            </div>
+            <div class="lt_count item_box">
+                详情:<span>{{proDesc}}</span>                       
+            </div>
+    </script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/product.js"></script>
+</body>
+
+</html>

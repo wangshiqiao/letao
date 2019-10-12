@@ -1,0 +1,54 @@
+.lt_main .item_box {
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.lt_main .item_box p {
+  line-height: 20px;
+  height: 40px;
+  font-weight: bold;
+  color: #000;
+}
+.lt_main .item_box:nth-child(2) {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.lt_main .item_box:last-child {
+  border-bottom: none;
+}
+.lt_main .lt_price {
+  height: 44px;
+  line-height: 24px;
+  font-size: 18px;
+}
+.lt_main .lt_price .nowPrice {
+  color: red;
+}
+.lt_main .lt_price .oldPrice {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.lt_main .lt_size .itemSize {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 25px;
+  font-size: 14px;
+}
+.lt_main .lt_count .surplusCount {
+  font-size: 14px;
+  color: #666;
+}
+.lt_buy {
+  height: 55px;
+  background-color: #EFEFF4;
+  border-top: 1px solid #FF0000;
+  line-height: 35px;
+  padding: 10px;
+}
+.lt_buy .buyCar {
+  font-size: 18px;
+  color: #008CFC;
+}
