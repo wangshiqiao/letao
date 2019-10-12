@@ -89,7 +89,7 @@
 <script type="html/text" id="tpl">
 {{each data v i}}
 <li>
-    <a href="product.html">
+    <a href="product.html?productId={{v.id}}">
         <img src="{{v.pic[0].picAddr}}" alt="">
         <p class="info mui-ellipsis-2">{{v.proName}} </p>
         <p class="price">

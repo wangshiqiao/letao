@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>买买买</title>
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib//mui/css/mui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/car.css">
+
+</head>
+
+<body>
+    <div class="lt_container">
+        <div class="lt_header">
+            <a href="index.html" class="mui-pull-left page"><i class="fa fa-home"></i></a>
+            <a href="javascript:void(0)" class="mui-pull-right search"></a>
+            <h3>乐淘云购</h3>
+        </div>
+        <div class="lt_main">
+            <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!--数据列表-->
+                    <ul class="mui-table-view mui-table-view-chevron dataItem">
+                        <!-- <li class="mui-table-view-cell mui-media">
+
+                            <div class="mui-slider-right mui-disabled">
+                                <a class="mui-btn mui-btn-primary mui-icon mui-icon-compose btnEdit"
+                                    style="transform: translate(0px, 0px);"></a>
+                                <a class="mui-btn mui-btn-danger mui-icon mui-icon-trash btnDel"
+                                    style="transform: translate(-90px, 0px);"></a>
+                            </div>
+                            <div class="mui-slider-handle" style="transform: translate(0px, 0px);">
+                                <div class="mui-table-cell">
+                                    <a href="javascript:;">
+                                        <img class="mui-media-object mui-pull-left" src="./images/detail.jpg">
+                                        <div class="mui-media-body">
+
+                                            <p class="mui-ellipsis-2 title">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+                                            <div class="lt_price">
+                                                <span class="nowPrice">¥499.1</span>
+                                                <span class="oldPrice">¥888.1</span>
+                                                <span class="mui-pull-right">1双</span>
+                                            </div>
+                                            <p>鞋码：50</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li> -->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="lt_footer">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-home"></i>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="category.html">
+                        <i class="fa fa-bars"></i>
+                        <p>分类页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="cart.html" class="current">
+                        <i class="fa fa-shopping-cart"></i>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fa fa-user"></i>
+                        <p>用户中心</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+<script type="text/html" id="tpl">
+    {{each obj v i}}
+    <li class="mui-table-view-cell mui-media">
+        <div class="mui-slider-right mui-disabled">
+            <a class="mui-btn mui-btn-primary mui-icon mui-icon-compose btnEdit" 
+            data-id="{{ v.id }}"
+            data-num="{{ v.num }}"
+            data-productNum="{{ v.productNum }}"
+            data-size="{{ v.size }}"
+            data-productSize="{{ v.productSize }}"
+                style="transform: translate(0px, 0px);"></a>
+            <a class="mui-btn mui-btn-danger mui-icon mui-icon-trash btnDel" data-id = "{{v.id}}"
+                style="transform: translate(-90px, 0px);"></a>
+        </div>
+        <div class="mui-slider-handle" style="transform: translate(0px, 0px);">
+            <div class="mui-table-cell">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="{{v.pic[0].picAddr}}">
+                    <div class="mui-media-body">
+
+                        <p class="mui-ellipsis-2 title">{{v.proName}}</p>
+                        <div class="lt_price">
+                            <span class="nowPrice">¥{{v.price}}</span>
+                            <span class="oldPrice">¥{{v.oldPrice}}</span>
+                            <span class="mui-pull-right">{{v.num}}双</span>
+                        </div>
+                        <p>鞋码：50</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<script type="text/html" id=tpl1>    
+    <div class="lt_size item_box">
+        尺码：
+        <%
+        var min = productsize.split('-')[0];    
+                                
+        var max = productsize.split('-')[1];
+    
+        for(var i=min;i <= max ; i++) {  
+            if(size==i){
+        %>
+                <span class="itemSize current">{{i}}</span>
+        <%
+            } else {
+        %>       
+                <span class="itemSize">{{i}}</span>
+        <% 
+            }
+        } 
+        %>
+        </div>
+        <div class="lt_count item_box">
+            数量:
+            <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='{{productnum}}'>
+                <!-- "-"按钮，点击可减小当前数值 -->
+                <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                <input class="mui-numbox-input" type="number" value="{{num}}" />
+                <!-- "+"按钮，点击可增大当前数值 -->
+                <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div>                   
+        </div>                
+</script>
+<script src="./lib/mui/js/mui.min.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/isLogin.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/car.js"></script>
+
+</html>

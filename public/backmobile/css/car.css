@@ -1,0 +1,51 @@
+.lt_main .mui-table-view-chevron .mui-table-view-cell {
+  padding-right: 10px;
+}
+.lt_main .mui-table-view-chevron .mui-table-view-cell > a:not(.mui-btn) {
+  margin-right: 0;
+}
+.lt_main .mui-table-view-chevron .mui-table-view-cell p {
+  font-size: 12px;
+}
+.lt_main .mui-table-view-chevron .mui-table-view-cell .title {
+  font-size: 14px;
+  color: #000;
+}
+.lt_main .mui-table-view-chevron .mui-table-view-cell .lt_price {
+  height: 20px;
+  line-height: 12px;
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #8f8f94;
+}
+.lt_main .mui-table-view-chevron .mui-table-view-cell .lt_price .nowPrice {
+  color: red;
+}
+.lt_main .mui-table-view-chevron .mui-table-view-cell .lt_price .oldPrice {
+  text-decoration: line-through;
+}
+.lt_size {
+  text-align: left;
+}
+.lt_size .itemSize {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 25px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.lt_size .itemSize.current {
+  background-color: #FFA500;
+}
+.lt_count {
+  text-align: left;
+  margin-top: 10px;
+}
+.lt_count .surplusCount {
+  font-size: 14px;
+  color: #666;
+}
