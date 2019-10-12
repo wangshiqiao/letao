@@ -35,7 +35,7 @@ $(function () {
                         //提示添加成功，是继续还是到购物车
                         mui.confirm("添加成功", "温馨提示", ["继续浏览", "前往购物车"], function (e) {
                             if (e.index == 1) {
-                                window.location.href = "car.html";
+                                window.location.href = "cart.html";
                             }
                         })
                     }
